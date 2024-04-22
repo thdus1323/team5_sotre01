@@ -1,5 +1,21 @@
 package com.example.store;
 
-public class ProductRequest {
+import lombok.Data;
 
+public class ProductRequest {
+    @Data
+    public static class SaveDTO{
+        private String name;
+        private int price;
+        private int qty;
+
+        public Product toEntity() {
+            return Product.builder()
+                    .name(name)
+                    .price(price)
+                    .qty(qty)
+                    .build();
+
+        }
+    }
 }

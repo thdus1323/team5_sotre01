@@ -1,0 +1,27 @@
+{{> layout/header}}
+<div class="container">
+    {{#product}}
+        <div class="col-lg-6 px-xl-10">
+            <div class="mb-3 mt-3">
+                상 품 명 : <input name="name" type="text" class="form-control" value="상품명을 입력하세요.">
+            </div>
+            <div class="mb-3 mt-3">
+                상품가격 : <input name="price" type="number" class="form-control" value="상품 가격을 입력하세요">
+            </div>
+            <div class="mb-3 mt-3">
+                상품수량 : <input name="qty" type="number" class="form-control" value="삼품 수량을 입력하세요.">
+            </div>
+            <div class="d-flex justify-content-center">
+                <span><a href="/product/1/update-form" class="btn btn-primary mt-3">수정하러가기</a></span>
+                <span><form action="/product/1/delete" method="post">
+                    <button class="btn btn-danger mt-3">삭제하기</button>
+                </form>
+                </span>
+            </div>
+        </div>
+
+
+    {{/product}}
+
+</div>
+{{> layout/footer}}

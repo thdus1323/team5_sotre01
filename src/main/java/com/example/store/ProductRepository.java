@@ -12,6 +12,12 @@ import java.util.List;
 public class ProductRepository {
     private final EntityManager em;
 
+
+    public Product save(Product product) {
+        em.persist(product);
+        return product;
+    }
+
     public ProductResponse.DetailDTO findById(int id) {
         Product product = em.find(Product.class, id);
         return new ProductResponse.DetailDTO(product);

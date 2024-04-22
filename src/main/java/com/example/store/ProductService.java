@@ -1,6 +1,7 @@
 package com.example.store;
 
 import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,11 @@ public class ProductService {
         return productRepository.findAll();
     }
     //상품 등록
+    @Transactional
+    public ProductResponse.SaveDTO saveProduct(ProductRequest.SaveDTO reqDTO) {
+        Product product = productRepository.save(reqDTO.toEntity());
+        return new ProductResponse.SaveDTO(product);
+    }
 
     //상품 업데이트
 

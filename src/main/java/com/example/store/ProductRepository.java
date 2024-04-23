@@ -20,8 +20,11 @@ public class ProductRepository {
 //    public void save() {
 //    }
 //
-//    public void findById() {
-//    }
+    public Product findById(int id) {
+        Query query = em.createNativeQuery("select * from product_tb where id = ?",Product.class);
+        query.setParameter(1,id);
+        return (Product) query.getSingleResult();
+    }
 //
 //    public void updateById() {
 //    }

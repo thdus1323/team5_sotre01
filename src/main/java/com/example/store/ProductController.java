@@ -17,17 +17,17 @@ public class ProductController {
     private final ProductService productService;
 
 
-    @GetMapping("/product")
+    @GetMapping({"/product", "/"})
     public String list(HttpServletRequest request){
-        List<Product> productList = productService.findAll();
+        List<ProductResponse.ListDTO> productList = productService.getProductList();
         request.setAttribute("productList", productList);
         return "product/list";
     }
 
     @GetMapping("/product/{id}")
     public String detail(@PathVariable Integer id, HttpServletRequest request) {
-//        Product product = productService.findById(id);
-//        request.setAttribute("product",product);
+        ProductResponse.DetailDTO product = productService.getProductDetail(id);
+        request.setAttribute("product",product);
         return "product/detail";
     }
 //

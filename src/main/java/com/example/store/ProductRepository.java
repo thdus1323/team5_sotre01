@@ -1,6 +1,7 @@
 package com.example.store;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -11,19 +12,23 @@ import java.util.List;
 public class ProductRepository {
     private final EntityManager em;
 
-
-    public void updateById() {
+    public List<Product> findAll() {
+    Query query = em.createNativeQuery("select * from product_tb order by id desc", Product.class);
+    return query.getResultList();
     }
 
-    public void deleteById() {
-    }
+//    public void save() {
+//    }
+//
+//    public void findById() {
+//    }
+//
+//    public void updateById() {
+//    }
+//
+//    public void deleteById() {
+//    }
+//
+//
 
-    public void save() {
-    }
-
-    public void findById() {
-    }
-
-    public void findAll() {
-    }
 }

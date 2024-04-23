@@ -15,12 +15,13 @@
             <th class="center-align col-2">상세보기</th>
         </tr>
         </thead>
+        {{#productList}}
             <tbody>
             <tr class="offer-table">
-                <th scope="row">1</th>
-                <td>상품명</td>
-                <td>가격</td>
-                <td>수량</td>
+                <th scope="row">{{id}}</th>
+                <td>{{name}}</td>
+                <td>{{price}}</td>
+                <td>{{qty}}</td>
                 <td>
                     <div class="new-create-button">
                         <form action="#">
@@ -30,6 +31,7 @@
                 </td>
             </tr>
             </tbody>
+        {{/productList}}
     </table>
 </div>
 

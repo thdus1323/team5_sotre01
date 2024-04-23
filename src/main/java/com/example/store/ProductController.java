@@ -26,11 +26,11 @@ public class ProductController {
 
     @GetMapping("/product/{id}")
     public String detail(@PathVariable Integer id, HttpServletRequest request) {
-        Product product = productService.findById(id);
-        request.setAttribute("product",product);
+//        Product product = productService.findById(id);
+//        request.setAttribute("product",product);
         return "product/detail";
     }
-
+//
     @GetMapping("/product/save-form")
     public String saveForm() {
         return "product/save-form";
@@ -38,14 +38,14 @@ public class ProductController {
 
     @PostMapping("/product/save")
     public String save(String name, Integer price, Integer qty) {
-        productService.save("name", price, qty);
+//        productService.save("name", price, qty);
         return "redirect:/product";
     }
 
     @GetMapping("/product/{id}/update-form")
     public String updateForm(@PathVariable Integer id, HttpServletRequest request) {
-        Product product = productService.findById(id);
-        request.setAttribute("product", product);
+//        Product product = productService.findById(id);
+//        request.setAttribute("product", product);
 
         return "product/update-form";
     }
@@ -53,7 +53,7 @@ public class ProductController {
 
     @PostMapping("/product/{id}/update")
     public String update(@PathVariable Integer id, String name, Integer price, Integer qty) {
-        productService.updateById(id, name,price,qty);
+//        productService.updateById(id, name,price,qty);
         return "redirect:/product/" + 1;
     }
 

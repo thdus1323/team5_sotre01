@@ -1,13 +1,10 @@
 package com.example.store;
 
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
@@ -16,16 +13,12 @@ public class ProductController {
 
 
     @GetMapping("/product")
-    public String list(HttpServletRequest request) {
-        List<ProductResponse.ListDTO> productList = productService.getProductList();
-        request.setAttribute("productList", productList);
+    public String list() {
         return "product/list";
     }
 
     @GetMapping("/product/{id}")
-    public String detail(@PathVariable Integer id, HttpServletRequest request) {
-        ProductResponse.DetailDTO product = productService.getProductDetail(id);
-        request.setAttribute("product", product);
+    public String detail() {
         return "product/detail";
     }
 
@@ -35,26 +28,21 @@ public class ProductController {
     }
 
     @PostMapping("/product/save")
-    public String save(ProductRequest.SaveDTO reqDTO) {
-        productService.saveProduct(reqDTO);
+    public String save() {
         return "redirect:/product";
     }
 
     @GetMapping("/product/{id}/update-form")
-    public String updateForm(@PathVariable Integer id, HttpServletRequest request) {
-        ProductResponse.DetailDTO product = productService.getProductDetail(id);
-        request.setAttribute("product", product);
+    public String updateForm() {
         return "product/update-form";
     }
     @PostMapping("/product/{id}/update")
-    public String update(@PathVariable Integer id, ProductRequest.UpdateDTO reqDTO) {
-        productService.updateProduct(id, reqDTO);
-        return "redirect:/product/" + id;
+    public String update() {
+        return "redirect:/product/" + 1;
     }
 
     @PostMapping("/product/{id}/delete")
-    public String delete(@PathVariable Integer id) {
-        productService.deleteProduct(id);
+    public String delete() {
         return "redirect:/product";
     }
 }

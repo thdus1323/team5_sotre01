@@ -16,13 +16,6 @@ spring:
     username: root
     password: 1234
 
-  h2:
-    console:
-      enabled: true
-  sql:
-    init:
-      data-locations:
-  #          - classpath:db/data.sql
   jpa:
     hibernate:
       ddl-auto: update

@@ -31,7 +31,6 @@ public class Product {
     private LocalDateTime createdAt;
 
     @Builder
-
     public Product(Integer id, String name, Integer price, Integer qty, LocalDateTime createdAt) {
         this.id = id;
         this.name = name;

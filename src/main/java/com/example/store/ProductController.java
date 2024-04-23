@@ -15,8 +15,10 @@ import java.util.List;
 @Controller
 public class ProductController {
     private final ProductService productService;
+    private final ProductRepository productRepository;
 
 
+    //상품목록보기완료
     @GetMapping({"/product", "/"})
     public String list(HttpServletRequest request){
         List<ProductResponse.ListDTO> productList = productService.getProductList();
@@ -24,23 +26,26 @@ public class ProductController {
         return "product/list";
     }
 
+    //상세보기완료
     @GetMapping("/product/{id}")
     public String detail(@PathVariable Integer id, HttpServletRequest request) {
         ProductResponse.DetailDTO product = productService.getProductDetail(id);
         request.setAttribute("product",product);
         return "product/detail";
     }
-//
+    
+    //상품등록 완료
+    @PostMapping("/product/save")
+    public String save(String name, Integer price, Integer qty) {
+        productRepository.save(name, price, qty);
+        return "redirect:/";
+    }
+    
     @GetMapping("/product/save-form")
     public String saveForm() {
         return "product/save-form";
     }
-
-    @PostMapping("/product/save")
-    public String save(String name, Integer price, Integer qty) {
-//        productService.save("name", price, qty);
-        return "redirect:/product";
-    }
+    
 
     @GetMapping("/product/{id}/update-form")
     public String updateForm(@PathVariable Integer id, HttpServletRequest request) {

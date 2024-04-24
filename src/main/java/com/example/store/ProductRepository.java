@@ -39,13 +39,13 @@ public class ProductRepository {
         return (Product) query.getSingleResult();
     }
 
-//    public void updateById(Integer id, ProductRequest.UpdateDTO requestDTO) {
-//        Query query = em.createNativeQuery("update product_tb set price=?, qty=? where id=?");
-//        query.setParameter(1, requestDTO.getPrice());
-//        query.setParameter(2, requestDTO.getQty());
-//        query.setParameter(3, id);
-//        query.executeUpdate();
-//    }
+    public void updateById(Integer id, ProductRequest.UpdateDTO requestDTO) {
+        Query query = em.createNativeQuery("update product_tb set price=?, qty=? where id=?");
+        query.setParameter(1, requestDTO.getPrice());
+        query.setParameter(2, requestDTO.getQty());
+        query.setParameter(3, id);
+        query.executeUpdate();
+    }
 
     public void deleteById(Integer id) {
         Query query = em.createNativeQuery("delete from product_tb where id = ?");

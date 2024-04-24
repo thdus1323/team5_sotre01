@@ -59,7 +59,7 @@ public class ProductController {
     @PostMapping("/product/{id}/update")
     public String update(@PathVariable Integer id, ProductRequest.UpdateDTO requestDTO) {
 
-//        productService.updateById(id, requestDTO);
+        productService.changeProduct(id, requestDTO);
         return "redirect:/product";
     }
 

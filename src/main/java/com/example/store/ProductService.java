@@ -36,17 +36,13 @@ public class ProductService {
     public void addProduct(ProductRequest.SaveDTO reqDTO) {
         productRepository.save(reqDTO);
     }
-//
-//    public Product findById(Integer id) {
-//        return Product
-//    }
-//
+
 
     //상품 업데이트
-//    @Transactional
-//    public void updateById(Integer id, ProductRequest.UpdateDTO requestDTO){
-//        productRepository.updateById(id, requestDTO);
-//    }
+    @Transactional
+    public void changeProduct(Integer id, ProductRequest.UpdateDTO requestDTO){
+        productRepository.updateById(id, requestDTO);
+    }
 
     //상품 삭제
     @Transactional

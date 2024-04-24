@@ -24,7 +24,7 @@
                 <td>{{qty}}</td>
                 <td>
                     <div class="new-create-button">
-                        <form action="/product/{{product.id}}">
+                        <form action="/product/{{id}}"> // 왜냐면{{productList}}로 이미 감쌌기 때문에 product.id 하짐 않아도 알아먹는다.
                             <button type="submit" class="btn btn-outline-primary">상세보기</button>
                         </form>
                     </div>

@@ -30,12 +30,12 @@ public class Product {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @Builder
-    public Product(Integer id, String name, Integer price, Integer qty, LocalDateTime createdAt) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
-        this.qty = qty;
-        this.createdAt = createdAt;
-    }
+//    @Builder
+//    public Product(Integer id, String name, Integer price, Integer qty, LocalDateTime createdAt) {
+//        this.id = id;
+//        this.name = name;
+//        this.price = price;
+//        this.qty = qty;
+//        this.createdAt = createdAt;
+//    }
 }
